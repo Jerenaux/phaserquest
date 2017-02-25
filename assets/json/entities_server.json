@@ -1,0 +1,144 @@
+{
+  "0":
+  {
+    "id":0,
+    "sprite":"skeleton",
+    "monster": true
+  },
+  "1":
+  {
+    "id":1,
+    "sprite":"goblin",
+    "monster": true
+  },
+  "2":
+  {
+    "id":2,
+    "sprite":"ogre",
+    "monster": true
+  },
+  "3":
+    {
+    "id":3,
+    "sprite":"rat",
+    "monster": true
+  },
+  "4":
+  {
+    "id":4,
+    "sprite":"spectre",
+    "monster": true
+  },
+  "5":
+  {
+    "id":5,
+    "sprite":"crab",
+    "monster": true
+  },
+  "13":
+  {
+    "id":13,
+    "sprite":"bat",
+    "monster": true
+  },
+  "14":
+  {
+    "id":14,
+    "sprite":"eye",
+    "monster": true
+  },
+  "15":
+  {
+    "id":15,
+    "sprite":"snake",
+    "monster": true
+  },
+  "16":
+  {
+    "id":15,
+    "sprite":"skeleton2",
+    "monster": true
+  },
+  "17":
+  {
+    "id":17,
+    "sprite":"boss",
+    "monster": true
+  },
+  "23":
+  {
+    "id":23,
+    "sprite":"deathknight",
+    "monster": true
+  },
+  "40": {
+    "id": 40,
+    "sprite": "item-redarmor",
+    "item": true
+  },
+  "42": {
+    "id": 42,
+    "sprite": "item-goldenarmor",
+    "item": true
+  },
+  "43": {
+    "id": 43,
+    "sprite": "item-leatherarmor",
+    "item": true
+  },
+  "44": {
+    "id": 44,
+    "sprite": "item-mailarmor",
+    "item": true
+  },
+  "45": {
+    "id": 45,
+    "sprite": "item-platearmor",
+    "item": true
+  },
+  "80" : {
+      "id":80,
+      "sprite":"item-sword2",
+      "item":true
+    },
+  "81" : {
+    "id":81,
+    "sprite":"item-axe",
+    "item":true
+  },
+  "82" : {
+    "id":82,
+    "sprite":"item-morningstar",
+    "item":true
+  },
+  "83" : {
+    "id":83,
+    "sprite":"item-redsword",
+    "item":true
+  },
+  "84" : {
+    "id":84,
+    "sprite":"item-bluesword",
+    "item":true
+  },
+  "85" : {
+    "id":85,
+    "sprite":"item-goldensword",
+    "item":true
+  },
+    "100":{
+      "id":100,
+      "sprite":"item-flask",
+      "item": true
+    },
+   "101": {
+      "id":101,
+      "sprite":"item-flask",
+     "item": true
+    },
+  "103": {
+    "id":103,
+    "sprite":"item-burger",
+    "item": true
+  }
+}

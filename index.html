@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phaser Quest</title>
+    <style>
+        body {
+            background:-webkit-gradient(radial, center center, 0, center center, 1200, from(rgba(0,0,0,0)), to(rgba(0,0,0,1))), url('/assets/sprites/wood.png') repeat, #000;
+            margin: 0;
+        }
+        #game {
+            cursor: url('/assets/sprites/hand.png'), auto;
+            max-width: 980px;
+            max-height: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0;
+        }
+        @font-face {
+            font-family: 'pixel';
+            src: url('/assets/fonts/advocut-webfont.ttf');
+        }
+        .fontPreload {
+            font-family: 'pixel';
+            position: absolute;
+            left: -100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="fontPreload">.</div> <!-- don't forget the dot, the div cannot be empty-->
+    <div id='game'></div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/client/phaser.js"></script>
+<script src="js/client/easystar.min.js"></script>
+<script src="js/client/phaser-input.min.js"></script>
+<script src="js/client/Being.js" type="text/javascript"></script>
+<script src="js/client/Human.js" type="text/javascript"></script>
+<script src="js/client/NPC.js" type="text/javascript"></script>
+<script src="js/client/Player_client.js" type="text/javascript"></script>
+<script src="js/client/Monster_client.js" type="text/javascript"></script>
+<script src="js/client/Item_client.js" type="text/javascript"></script>
+<script src="js/client/Factory.js" type="text/javascript"></script>
+<script src="js/client/game.js" type="text/javascript"></script>
+<script src="js/client/home.js" type="text/javascript"></script>
+<script src="js/client/Decoder.js" type="text/javascript"></script>
+<script src="js/client/main.js" type="text/javascript"></script>
+<script src="js/client/client.js" type="text/javascript"></script>
+<script src="js/client/compressed.js" type="text/javascript"></script>
+<script src="js/spaceMap.js" type="text/javascript"></script>
+<script src="js/CoDec.js" type="text/javascript"></script>
+<script src="js/AOIutils.js" type="text/javascript"></script>
+
+</html>

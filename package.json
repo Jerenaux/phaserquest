@@ -1,0 +1,34 @@
+{
+  "name": "phaserquest",
+  "version": "1.0.0",
+  "description": "Clone of Mozilla's BrowserQuest with the Phaser engine",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://jerome_renaux@bitbucket.org/jerome_renaux/browserquest-clone.git"
+  },
+  "keywords": [
+    "Browserquest",
+    "Phaser",
+    "online",
+    "game",
+    "html5"
+  ],
+  "author": "Jerome Renaux",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/jerome_renaux/browserquest-clone#readme",
+  "dependencies": {
+    "clone": "^2.1.0",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.16",
+    "optimist": "^0.6.1",
+    "pathfinding": "^0.4.18",
+    "quickselect": "^1.0.0",
+    "random-weighted-choice": "^0.1.3",
+    "socket.io": "^1.7.2"
+  }
+}

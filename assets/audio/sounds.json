@@ -1,0 +1,55 @@
+{
+  "resources": [
+    "sounds.ogg",
+    "sounds.m4a",
+    "sounds.mp3",
+    "sounds.ac3"
+  ],
+  "spritemap": {
+    "achievement": {
+      "start": 0,
+      "end": 0.860204081632653,
+      "loop": false
+    },
+    "chat": {
+      "start": 2,
+      "end": 2.2367573696145127,
+      "loop": false
+    },
+    "chest": {
+      "start": 4,
+      "end": 4.272879818594104,
+      "loop": false
+    },
+    "death": {
+      "start": 6,
+      "end": 6.962721088435374,
+      "loop": false
+    },
+    "heal": {
+      "start": 8,
+      "end": 8.370204081632654,
+      "loop": false
+    },
+    "hit1": {
+      "start": 10,
+      "end": 10.11251700680272,
+      "loop": false
+    },
+    "hurt": {
+      "start": 12,
+      "end": 12.050589569160998,
+      "loop": false
+    },
+    "kill2": {
+      "start": 14,
+      "end": 14.340748299319728,
+      "loop": false
+    },
+    "noloot": {
+      "start": 16,
+      "end": 16.766938775510205,
+      "loop": false
+    }
+  }
+}

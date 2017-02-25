@@ -1,0 +1,76 @@
+{
+    "6": {
+    "id":6,
+    "sprite":"guard",
+    "npc": true
+  },
+  "7": {
+    "id":7,
+    "sprite":"king",
+    "npc": true
+  },
+   "8": {
+      "id":8,
+      "sprite":"octocat",
+      "npc": true
+    },
+  "10": {"id":10,
+    "sprite":"villagegirl",
+    "npc": true
+    },
+  "11": {
+    "id":11,
+    "sprite":"villager",
+    "npc": true
+  },
+  "12": {
+    "id":12,
+    "sprite":"priest",
+    "npc": true
+    },
+  "18": {
+    "id":18,
+    "sprite":"scientist",
+    "npc": true
+  },
+  "19": {
+    "id":19,
+    "sprite":"agent",
+    "npc": true
+    },
+  "20": {
+    "id":20,
+    "sprite":"rick",
+    "npc": true
+  },
+  "21": {
+    "id":21,
+    "sprite":"nyan",
+    "npc": true
+  },
+   "22": {
+      "id": 22,
+      "sprite": "sorcerer",
+      "npc": true
+    },
+  "24": {
+  "id":24,
+  "sprite":"beachnpc",
+  "npc": true
+  },
+  "25": {
+    "id":25,
+    "sprite":"desertnpc",
+    "npc": true
+  },
+  "26": {
+    "id":26,
+    "sprite":"lavanpc",
+    "npc": true
+  },
+  "27": {
+    "id":27,
+    "sprite":"coder",
+    "npc": true
+  }
+}
