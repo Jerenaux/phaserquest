@@ -11,8 +11,8 @@ game.state.start('Home');
 = Final TODO list:
 * Quick: readme about main functions?
 * Put on Github
-* Make blog
-* About, Share, Source, Credits (indep from Phaser), License, ... [responsively]
+* Make blog (add links to it in github readme)
+* About, Share, Source, Credits (indep from Phaser), License, ...
  ->Give credit for external tools (phaser-input etc.)
 * Setup game analytics (http://www.gameanalytics.com/) and google analytics
 */

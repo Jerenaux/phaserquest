@@ -58,11 +58,12 @@ app.get('/',function(req,res){
 var myArgs = require('optimist').argv;
 var mongoHost, mongoDBName;
 
-if(myArgs.heroku){
+if(myArgs.heroku){ // --heroku flag to behave according to Heroku's specs
     mongoHost = 'heroku_4tv68zls:'+myArgs.pass+'@ds141368.mlab.com:41368';
     mongoDBName = 'heroku_4tv68zls';
 }else {
-    mongoHost = 'localhost:27017';
+    var mongoPort = (myArgs.mongoPort || 27017);
+    mongoHost = 'localhost:'+mongoPort;
     mongoDBName = 'phaserQuest';
 }
 
