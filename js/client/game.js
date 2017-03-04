@@ -1216,6 +1216,9 @@ Game.createCollisionArray = function(){
             for (var l = 0; l < Game.map.gameLayers.length; l++) {
                 var tile = Game.map.getTile(x, y, Game.map.gameLayers[l]);
                 if (tile) {
+                    // The original BrowserQuest Tiled file doesn't use a collision layer; rather, properties are added to the
+                    // tileset to indicate which tiles causes collisions or not. Which is why we have to check in the tileProperties
+                    // if a given tile has the property "c" or not (= collision)
                     var tileProperties = Game.map.tileset.tileProperties[tile.index - Game.map.tileset.gid];
                     if (tileProperties) {
                         if (tileProperties.hasOwnProperty('c')) {

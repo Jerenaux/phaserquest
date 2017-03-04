@@ -126,6 +126,9 @@ GameServer.readMap = function(){
                 for (var l = 0; l < GameServer.layers.length; l++) {
                     var tile = GameServer.layers[l][y * GameServer.map.width + x];
                     if (tile) {
+                        // The original BrowserQuest Tiled file doesn't use a collision layer; rather, properties are added to the
+                        // tileset to indicate which tiles causes collisions or not. Which is why we have to check in the tileProperties
+                        // if a given tile has the property "c" or not (= collision)
                         var tileProperties = GameServer.tilesets['tilesheet'][tile - 1];
                         if (tileProperties) {
                             if (tileProperties.hasOwnProperty('c')) {
