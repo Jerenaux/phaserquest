@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://jerome_renaux@bitbucket.org/jerome_renaux/browserquest-clone.git"
+    "url": "git+https://github.com/Jerenaux/phaserquest"
   },
   "keywords": [
     "Browserquest",
@@ -19,8 +19,8 @@
     "html5"
   ],
   "author": "Jerome Renaux",
-  "license": "ISC",
-  "homepage": "https://bitbucket.org/jerome_renaux/browserquest-clone#readme",
+  "license": "MIT",
+  "homepage": "https://github.com/Jerenaux/phaserquest#readme",
   "dependencies": {
     "clone": "^2.1.0",
     "express": "^4.14.0",
