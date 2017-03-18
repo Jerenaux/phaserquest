@@ -91,9 +91,9 @@ io.on('connection',function(socket){
         var ss = server.getShortStamp();
         var delta = (ss - sentStamp)/2;
         if(delta < 0) delta = 0;
-        socket.pings.push(delta);
-        if(socket.pings.length > 20) socket.pings.shift();
-        socket.latency = server.quickMedian(socket.pings.slice(0));
+        socket.pings.push(delta); // socket.pings is the list of the 20 last latencies
+        if(socket.pings.length > 20) socket.pings.shift(); // keep the size down to 20
+        socket.latency = server.quickMedian(socket.pings.slice(0)); // quickMedian used the quickselect algorithm to compute the median of a list of values
     });
 
     socket.on('init-world',function(data){
