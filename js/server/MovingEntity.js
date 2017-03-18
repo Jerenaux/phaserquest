@@ -52,6 +52,8 @@ MovingEntity.prototype.updateWalk = function(){
     this.lastWalkUpdate = Date.now();
     var previousX = this.x;
     var previousY = this.y;
+    // this.speed is the amount of time need to travel a distance of 1 tile;
+    // delta = the number of tiles traveled since departure
     var delta = Math.ceil(Math.abs(Date.now() - this.route.departureTime)/this.speed);
     var maxDelta = this.route.path.length-1;
     if(delta > maxDelta) delta = maxDelta;
