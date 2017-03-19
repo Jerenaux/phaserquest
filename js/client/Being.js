@@ -145,6 +145,7 @@ Being.prototype.pathfindingCallback = function(finalOrientation,action,delta,sen
     // path is an array of 2-tuples of coordinates
     if(path === null && this.isPlayer) {
         Game.moveTarget.visible = false;
+        Game.marker.visible = true;
     }else if(path !== null){
         if(action.action == 3 || action.action == 4){ // fight or chest
             finalOrientation = Game.computeFinalOrientation(path);
