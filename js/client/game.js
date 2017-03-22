@@ -30,7 +30,9 @@ var Game = {
     HPdelay: 100, // Delay before displaying hit points
     maxChatLength: 300, // Max length of text to input in chat
     latency: 0, // Initial latency of the client; continuously updated by values from server
-    charactersPool: {} // Map of the players in the game, accessed by their player id
+    charactersPool: {}, // Map of the players in the game, accessed by their player id
+    clickDelay: Phaser.Timer.SECOND * 0.2, // minimum time between player mouse clicks
+    clickEnabled: true // bool used to check if the player has clicked faster than the click delay
 };
 // used to map the orientation of the player, stored as a number, to the actual name of the orientation
 // (used to select the right animations to play, by name)
@@ -1287,67 +1289,97 @@ Game.displayNPC = function() {
 // ===========================
 // Mouse and click-related code
 
-Game.handleCharClick = function(character){ // Handles what happens when clicking on an NPC
-    // character is the sprite that was clicked
-    var end = Game.computeTileCoords(character.x,character.y);
-    end.y++; // So that the player walks to place himself in front of the NPC
-    // NPC id to keep track of the last line said to the player by each NPC; since there can be multiple identical NPC
-    // (e.g. the guards), the NPC ids won't do ; however, since there can be only one NPC at a given location, some
-    // basic "hash" of its coordinates makes for a unique id, as follow
-    var cid = character.x+'_'+character.y;
-    // Game.player.dialoguesMemory keeps track of the last line (out of the multiple an NPC can say) that a given NPC has
-    // said to the player; the following finds which one it is, and increment it to display the next one
-    var lastline;
-    if(Game.player.dialoguesMemory.hasOwnProperty(cid)){
-        // character.dialogue is an array of all the lines that an NPC can say. If the last line said is the last
-        // of the array, then assign -1, so that no line will be displayed at the next click (and then it will resume from the first line)
-        if(Game.player.dialoguesMemory[cid] >= character.dialogue.length)Game.player.dialoguesMemory[cid] = -1;
-    }else{
-        // If the player has never talked to the NPC, start at the first line
-        Game.player.dialoguesMemory[cid] = 0;
+Game.enableClick = function(){
+    this.clickEnabled = true;
+};
+
+Game.disableClick = function() {
+    this.clickEnabled = false;
+};
+
+Game.handleClick = function(){
+    // If click is enabled, return true to the calling function to allow player to click,
+    // then disable any clicking for time clickDelay
+    if (this.clickEnabled){
+        // re-enable the click after time clickDelay has passed
+        game.time.events.add(this.clickDelay, this.enableClick, this);
+        Game.disableClick();
+        return true;
     }
-    lastline = Game.player.dialoguesMemory[cid]++; // assigns to lastline, then increment
-    var action = {
-        action:1, // talk
-        id:cid,
-        text: (lastline >= 0 ? character.dialogue[lastline] : ''), // if -1, don't display a bubble
-        character: character
+    return false;
+};
+
+Game.handleCharClick = function(character){ // Handles what happens when clicking on an NPC
+    if (this.handleClick()) {
+        // character is the sprite that was clicked
+        var end = Game.computeTileCoords(character.x, character.y);
+        end.y++; // So that the player walks to place himself in front of the NPC
+        // NPC id to keep track of the last line said to the player by each NPC; since there can be multiple identical NPC
+        // (e.g. the guards), the NPC ids won't do ; however, since there can be only one NPC at a given location, some
+        // basic "hash" of its coordinates makes for a unique id, as follow
+        var cid = character.x + '_' + character.y;
+        // Game.player.dialoguesMemory keeps track of the last line (out of the multiple an NPC can say) that a given NPC has
+        // said to the player; the following finds which one it is, and increment it to display the next one
+        var lastline;
+        if (Game.player.dialoguesMemory.hasOwnProperty(cid)) {
+            // character.dialogue is an array of all the lines that an NPC can say. If the last line said is the last
+            // of the array, then assign -1, so that no line will be displayed at the next click (and then it will resume from the first line)
+            if (Game.player.dialoguesMemory[cid] >= character.dialogue.length) Game.player.dialoguesMemory[cid] = -1;
+        } else {
+            // If the player has never talked to the NPC, start at the first line
+            Game.player.dialoguesMemory[cid] = 0;
+        }
+        lastline = Game.player.dialoguesMemory[cid]++; // assigns to lastline, then increment
+        var action = {
+            action: 1, // talk
+            id: cid,
+            text: (lastline >= 0 ? character.dialogue[lastline] : ''), // if -1, don't display a bubble
+            character: character
+        };
+        Game.player.prepareMovement(end, 2, action, 0, true); // true : send path to server
     };
-    Game.player.prepareMovement(end,2,action,0,true); // true : send path to server
 };
 
 Game.handleChestClick = function(chest){ // Handles what happens when clicking on a chest
-    // chest is the sprite that was clicked
-    var end = Game.computeTileCoords(chest.x,chest.y);
-    var action = {
-        action: 4, // chest
-        x: end.x,
-        y: end.y
-    };
-    Game.player.prepareMovement(end,0,action,0,true); // true : send path to server
+    if (this.handleClick()) {
+        // chest is the sprite that was clicked
+        var end = Game.computeTileCoords(chest.x, chest.y);
+        var action = {
+            action: 4, // chest
+            x: end.x,
+            y: end.y
+        };
+        Game.player.prepareMovement(end, 0, action, 0, true); // true : send path to server
+    }
 };
 
 Game.handleLootClick = function(loot){ // Handles what happens when clicking on an item
-    // loot is the sprite that was clicked
-    Game.player.prepareMovement(Game.computeTileCoords(loot.x,loot.y),0,{action:0},0,true); // true : send path to server
+    if (this.handleClick()) {
+        // loot is the sprite that was clicked
+        Game.player.prepareMovement(Game.computeTileCoords(loot.x, loot.y), 0, {action: 0}, 0, true); // true : send path to server
+    }
 };
 
 Game.handleMapClick = function(layer,pointer){ // Handles what happens when clicking on an empty tile to move
-    // layer is the layer object that was clicked on, pointer is the mouse
-    if(!Game.marker.collide && Game.view.contains(pointer.worldX,pointer.worldY)){ // To avoid trigger movement to collision cells or cells below the HUD
-        var end = Game.computeTileCoords(Game.marker.x,Game.marker.y);
-        Game.player.prepareMovement(end,0,{action:0},0,true); // true : send path to server
+    if (this.handleClick()) {
+        // layer is the layer object that was clicked on, pointer is the mouse
+        if (!Game.marker.collide && Game.view.contains(pointer.worldX, pointer.worldY)) { // To avoid trigger movement to collision cells or cells below the HUD
+            var end = Game.computeTileCoords(Game.marker.x, Game.marker.y);
+            Game.player.prepareMovement(end, 0, {action: 0}, 0, true); // true : send path to server
+        }
     }
 };
 
 Game.handleMonsterClick = function(monster){ // Handles what happens when clicking on a monster
-    // monster is the sprite that was clicked on
-    var end = Game.computeTileCoords(monster.x,monster.y);
-    var action = {
-        action: 3, // fight
-        id: monster.id
-    };
-    Game.player.prepareMovement(end,0,action,0,true); // true : send path to server
+    if (this.handleClick()) {
+        // monster is the sprite that was clicked on
+        var end = Game.computeTileCoords(monster.x, monster.y);
+        var action = {
+            action: 3, // fight
+            id: monster.id
+        };
+        Game.player.prepareMovement(end, 0, action, 0, true); // true : send path to server
+    }
 };
 
 Game.manageMoveTarget = function(x,y){
