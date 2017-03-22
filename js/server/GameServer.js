@@ -108,7 +108,7 @@ GameServer.readMap = function(){
 
         // Iterate over all tiles and work out AOIs and collisions
         AOIutils.nbAOIhorizontal = Math.ceil(GameServer.map.width/GameServer.AOIwidth);
-        GameServer.AOIs = {};
+        GameServer.AOIs = {}; // Maps AOI id to AOI object
         GameServer.dirtyAOIs = new Set(); // Set of AOI's whose update package have changes since last update
         GameServer.AOIfromTiles = new spaceMap(); // map tiles coordinates to AOI id (e.g. the tile (3,2) is in AOI 0)
         GameServer.collisionGrid = [];
