@@ -1310,7 +1310,7 @@ Game.handleClick = function(){
 };
 
 Game.handleCharClick = function(character){ // Handles what happens when clicking on an NPC
-    if (this.handleClick()) {
+    if (Game.handleClick()) {
         // character is the sprite that was clicked
         var end = Game.computeTileCoords(character.x, character.y);
         end.y++; // So that the player walks to place himself in front of the NPC
@@ -1341,7 +1341,7 @@ Game.handleCharClick = function(character){ // Handles what happens when clickin
 };
 
 Game.handleChestClick = function(chest){ // Handles what happens when clicking on a chest
-    if (this.handleClick()) {
+    if (Game.handleClick()) {
         // chest is the sprite that was clicked
         var end = Game.computeTileCoords(chest.x, chest.y);
         var action = {
@@ -1354,14 +1354,14 @@ Game.handleChestClick = function(chest){ // Handles what happens when clicking o
 };
 
 Game.handleLootClick = function(loot){ // Handles what happens when clicking on an item
-    if (this.handleClick()) {
+    if (Game.handleClick()) {
         // loot is the sprite that was clicked
         Game.player.prepareMovement(Game.computeTileCoords(loot.x, loot.y), 0, {action: 0}, 0, true); // true : send path to server
     }
 };
 
 Game.handleMapClick = function(layer,pointer){ // Handles what happens when clicking on an empty tile to move
-    if (this.handleClick()) {
+    if (Game.handleClick()) {
         // layer is the layer object that was clicked on, pointer is the mouse
         if (!Game.marker.collide && Game.view.contains(pointer.worldX, pointer.worldY)) { // To avoid trigger movement to collision cells or cells below the HUD
             var end = Game.computeTileCoords(Game.marker.x, Game.marker.y);
@@ -1371,7 +1371,7 @@ Game.handleMapClick = function(layer,pointer){ // Handles what happens when clic
 };
 
 Game.handleMonsterClick = function(monster){ // Handles what happens when clicking on a monster
-    if (this.handleClick()) {
+    if (Game.handleClick()) {
         // monster is the sprite that was clicked on
         var end = Game.computeTileCoords(monster.x, monster.y);
         var action = {
