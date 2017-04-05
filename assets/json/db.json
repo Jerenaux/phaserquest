@@ -654,9 +654,9 @@
     },
     "scientist":{
       "frame":0,
-      "atlasKey": "scientist",
+      "atlasKey": "phaser",
       "customAnchor": {"x":-0.1,"y":0.25},
-      "nbFrames":2,
+      "nbFrames":1,
       "dialogue": ["This game was made using the Phaser game engine.","However, it is not related to the Phaser development team and was made independently. Enjoy!"]
     },
     "agent":{
