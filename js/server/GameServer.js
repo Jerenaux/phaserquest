@@ -698,7 +698,9 @@ GameServer.handleAOItransition = function(entity,previous){
     var AOIs = entity.listAdjacentAOIs(true);
     if(previous){
         var previousAOIs = AOIutils.listAdjacentAOIs(previous);
-        AOIs = AOIs.diff(previousAOIs); // only the AOIs that are now adjacent but were not before need an update, those who where already adjacent are up-to-date
+        // Array_A.diff(Array_B) returns the elements in A that are not in B
+        // This is used because only the AOIs that are now adjacent, but were not before, need an update. Those who where already adjacent are up-to-date
+        AOIs = AOIs.diff(previousAOIs);
     }
     AOIs.forEach(function(aoi){
         if(entity.constructor.name == 'Player') entity.newAOIs.push(aoi); // list the new AOIs in the neighborhood, from which to pull updates

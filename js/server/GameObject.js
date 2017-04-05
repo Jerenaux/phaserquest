@@ -18,7 +18,7 @@ GameObject.prototype.setProperty = function(property,value){
 GameObject.prototype.updateAOIs = function(property,value){
     // When something changes, all the AOI around the affected entity are updated
     var AOIs = this.listAdjacentAOIs(true);
-    var category = this.category;
+    var category = this.category; // type of the affected game object: player, monster, item
     var id = this.id;
     AOIs.forEach(function(aoi){
         GameServer.updateAOIproperty(aoi,category,id,property,value);
