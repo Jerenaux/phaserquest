@@ -58,12 +58,28 @@ app.get('/',function(req,res){
 var myArgs = require('optimist').argv;
 var mongoHost, mongoDBName;
 
+function sleep(milliseconds) {
+    console.log('Waiting for database - start: ' + new Date().getTime());
+    var start = new Date().getTime();
+    while (true) {
+        if ((new Date().getTime() - start) > milliseconds){
+            break;
+        }
+    }
+    console.log('Waiting for database - finished: ' + (new Date().getTime() - start));
+}
+
+if(myArgs.waitForDatabase) {
+    sleep(myArgs.waitForDatabase);
+}
+
 if(myArgs.heroku){ // --heroku flag to behave according to Heroku's specs
     mongoHost = 'heroku_4tv68zls:'+myArgs.pass+'@ds141368.mlab.com:41368';
     mongoDBName = 'heroku_4tv68zls';
 }else {
     var mongoPort = (myArgs.mongoPort || 27017);
-    mongoHost = 'localhost:'+mongoPort;
+    var mongoServer = (myArgs.mongoServer || 'localhost');
+    mongoHost = mongoServer+':'+mongoPort;
     mongoDBName = 'phaserQuest';
 }
 
@@ -81,7 +97,7 @@ server.listen(myArgs.p || process.env.PORT || 8081,function(){ // -p flag to spe
 });
 
 io.on('connection',function(socket){
-    console.log('connection widht ID '+socket.id);
+    console.log('connection with ID '+socket.id);
     console.log(server.getNbConnected()+' already connected');
     socket.pings = [];
 
@@ -132,7 +148,7 @@ io.on('connection',function(socket){
     });
 
     socket.on('disconnect',function(){
-        console.log('Disconnection widht ID '+socket.id);
+        console.log('Disconnection with ID '+socket.id);
         if(gs.getPlayer(socket.id)) gs.removePlayer(socket.id);
     });
 });

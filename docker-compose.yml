@@ -1,0 +1,29 @@
+version: '2.0'
+
+services:
+  mongo:
+    image: 'mongo:3.4.4'
+    ports:
+      - '127.0.0.1:27017:27017'
+    volumes:
+      - 'mongo:/data/db'
+
+  browserquest:
+    tty: true
+    stdin_open: true
+    depends_on:
+      - mongo
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: node server.js -p 80 --mongoServer mongo --waitForDatabase 5000
+    ports:
+      - '80:80'
+    volumes:
+      - './assets:/usr/src/app/assets'
+      - './js:/usr/src/app/js'
+      - './server.js:/usr/src/app/server.js'
+      - './package.json:/usr/src/app/package.json'
+      - './index.html:/usr/src/app/index.html'
+volumes:
+  mongo:
