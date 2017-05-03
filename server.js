@@ -49,11 +49,6 @@ app.get('/',function(req,res){
     res.sendFile(__dirname+'/index.html');
 });
 
-/*app.get('/format',function(req,res){
-    res.status(200).send('Formatting...');
-    mapFormat.format();
-});*/
-
 // Manage command line arguments
 var myArgs = require('optimist').argv;
 var mongoHost, mongoDBName;
