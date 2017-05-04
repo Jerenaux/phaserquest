@@ -8,7 +8,7 @@ services:
     volumes:
       - 'mongo:/data/db'
 
-  browserquest:
+  phaserquest:
     tty: true
     stdin_open: true
     depends_on:
