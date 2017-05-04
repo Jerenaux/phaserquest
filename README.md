@@ -31,6 +31,15 @@ Clone the repository. Inside the newly created directory, run `npm install` to i
 By default, it'll listen to connections on port `8081`; you can change that behaviour by using the `-p` flag (e.g. `node server.js -p 80`). 
 By default, it'll attempt to connect to MongoDB on port `27017`; you can change that behaviour by using the `--mongoPort` flag (e.g. `node server.js --mongoPort 25000`).
 
+### Using Docker
+
+Alternatively, you can use the Dockerfile to create a container with all the necessary components already installed. You need to have [Docker](https://www.docker.com) installed. Then, in the directory where you clones the project, run:
+
+`docker-compose build`
+`docker-compose up -d`
+
+The default por when using the Docker way is `80`, so you need to navigate to `<IP_of_your_Docker_machine>:80` to be able to access the game (e.g. 192.168.99.100:80). 
+
 ## Further documentation
 
 I have written and will keep writing articles about some development aspects of the game. The full list of existing articles is available [here](http://www.dynetisgames.com/tag/phaser-quest/).
