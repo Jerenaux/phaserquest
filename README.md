@@ -33,7 +33,7 @@ By default, it'll attempt to connect to MongoDB on port `27017`; you can change 
 
 ### Using Docker
 
-Alternatively, you can use the Dockerfile to create a container with all the necessary components already installed. You need to have [Docker](https://www.docker.com) installed. Then, in the directory where you clones the project, run:
+Alternatively, you can use the Dockerfile to create a container with all the necessary components already installed (thanks to Martin kramer for the corresponding pull request). You need to have [Docker](https://www.docker.com) installed. Then, in the directory where you clones the project, run:
 
 ```
 docker-compose build
