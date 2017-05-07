@@ -26,12 +26,14 @@ AOI.prototype.clear = function(){
 
 AOI.prototype.addEntity = function(entity,previous){
     this.entities.push(entity);
+    if(entity.constructor.name == 'Player') GameServer.server.addToRoom(entity.socketID,'AOI'+this.id);
     GameServer.handleAOItransition(entity,previous);
 };
 
 AOI.prototype.deleteEntity = function(entity) {
     var idx = this.entities.indexOf(entity);
     if (idx >= 0) this.entities.splice( idx, 1 );
+    if(entity.constructor.name == 'Player') GameServer.server.leaveRoom(entity.socketID,'AOI'+this.id);
 };
 
 module.exports.AOI = AOI;

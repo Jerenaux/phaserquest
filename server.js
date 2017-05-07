@@ -174,6 +174,16 @@ server.getNbConnected =function(){
     return Object.keys(gs.players).length;
 };
 
+server.addToRoom = function(socketID,room){
+    var socket = server.getSocket(socketID);
+    socket.join(room);
+};
+
+server.leaveRoom = function(socketID,room){
+    var socket = server.getSocket(socketID);
+    if(socket) socket.leave(room);
+};
+
 server.sendID = function(socket,playerID){
     socket.emit('pid',playerID);
 };
