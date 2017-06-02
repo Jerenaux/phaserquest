@@ -19,7 +19,7 @@ data from the server. Upon reception of this data, `Game.initWorld()` is called,
 
 ### Server and updates
 
-`server.js` is the Node.js server that supports the game. Most of the server-side game logic however is located in `js/server/GameServer.js`. Every 200ms, `GameServer.updatePlayers()` is called, and sends updates to all clients (if there are updates to send, as determined by the curstom interest management system). Client-side, these updates are processed by `Game.updateWorld()` and `Game.updateSelf()`. 
+`server.js` is the Node.js server that supports the game. Most of the server-side game logic however is located in `js/server/GameServer.js`. Every 200ms, `GameServer.updatePlayers()` is called, and sends updates to all clients (if there are updates to send, as determined by the custom interest management system). Client-side, these updates are processed by `Game.updateWorld()` and `Game.updateSelf()`. 
 
 The code used for the custom binary protocol for the exchange of update packets can be found in `js/client/Decoder.js`, `js/server/Encoder.js` and `js/CODec.js`.
 
