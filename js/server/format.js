@@ -90,9 +90,9 @@ function formatMap(){
 
         console.log("Initial #layers = "+map.layers.length);
         console.log("New #layers = "+clientmap.layers.length);
+        // Write down the newly created files
         fs.writeFile(__dirname+path+'mini'+name+'_client.json',JSON.stringify(clientmap),function(err){
             console.log('Client map written!');
-            //breakMap(clientmap);
         });
         fs.writeFile(__dirname+path+'mini'+name+'_server.json',JSON.stringify(servermap),function(err){
             console.log('Server map written!');
