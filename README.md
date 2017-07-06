@@ -27,7 +27,7 @@ The code used for the custom binary protocol for the exchange of update packets 
 
 For the client, everything is included in the code (`phaser.js`, `easystar.min.js`, ...). You will need [npm](https://www.npmjs.com/) to install the Node.js packages required for the server. To run the server, you'll need to have Node.js installed, as well as [MongoDB](https://www.mongodb.com/).
 
-Clone the repository. Inside the newly created directory, run `npm install` to install the Node.js packages listed in `package.json`. Then run `node server.js` to start the server. 
+Clone the repository. Inside the newly created directory, run `npm install` to install the Node.js packages listed in `package.json`. Make sure that you have MongoDB running, then run `node server.js` to start the game server. 
 By default, it'll listen to connections on port `8081`; you can change that behaviour by using the `-p` flag (e.g. `node server.js -p 80`). 
 By default, it'll attempt to connect to MongoDB on port `27017`; you can change that behaviour by using the `--mongoPort` flag (e.g. `node server.js --mongoPort 25000`).
 
