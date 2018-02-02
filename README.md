@@ -57,3 +57,7 @@ Here is the detail of the topics covered so far:
 - [Latency estimation](http://www.dynetisgames.com/2017/03/19/latency-estimation-phaser-quest/)
 - [Interest management](http://www.dynetisgames.com/2017/03/19/latency-estimation-phaser-quest/) (the "AOI" stuff you might encounter in the code)
 - [Custom Binary Protocol](http://www.dynetisgames.com/2017/06/14/custom-binary-protocol-javascript/)
+
+## Donate
+
+If you want to support me to make more open-source projects like Phaser Quest, consider having a look at my [donation page](http://www.dynetisgames.com/donate/donation). In particular, take a minute to have a look at my [Patreon page](https://www.patreon.com/jeromerenaux), where you can find a listing of rewards for various levels of recurring contributions!
