@@ -23,6 +23,9 @@ Home.preload = function(){
     game.load.atlasJSONHash('atlas1', 'assets/sprites/atlas1.png', 'assets/sprites/atlas1.json'); // PNJ, HUD, marker, achievements ...
     game.load.atlasJSONHash('atlas3', 'assets/sprites/atlas3.png', 'assets/sprites/atlas3.json'); // Items, weapons, armors
     game.load.json('db', 'assets/json/db.json');
+
+    // https://phaser.io/examples/v2/audio/play-music
+    game.load.audio('intro', ['assets/music/phaser-quest-intro.ogg']);
 };
 
 Home.create = function(){
@@ -35,7 +38,8 @@ Home.create = function(){
     if(!Game.isNewPlayer) Home.makeResetScroll();
     Home.displayHomeScroll();
     Home.displayLogo();
-    //Home.displayLinks();
+    Home.music = game.add.audio('intro');
+    Home.music.play();
     document.onkeydown = Home.handleKeyPress;
 };
 
