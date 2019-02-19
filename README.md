@@ -60,4 +60,4 @@ Here is the detail of the topics covered so far:
 
 ## Donate
 
-If you want to support me to make more open-source projects like Phaser Quest, consider having a look at my [donation page](http://www.dynetisgames.com/donate/donation). In particular, take a minute to have a look at my [Patreon page](https://www.patreon.com/jeromerenaux), where you can find a listing of rewards for various levels of recurring contributions!
+If you want to support me to make more open-source projects like Phaser Quest, consider having a look at my [donation page](https://www.dynetisgames.com/donate/). In particular, take a minute to have a look at my [Patreon page](https://www.patreon.com/jeromerenaux), where you can find a listing of rewards for various levels of recurring contributions!
