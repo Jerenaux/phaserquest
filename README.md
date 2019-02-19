@@ -55,7 +55,7 @@ I have written and will keep writing articles about some development aspects of 
 Here is the detail of the topics covered so far:
 - [Clients synchronization](http://www.dynetisgames.com/2017/03/19/client-updates-phaser-quest/)
 - [Latency estimation](http://www.dynetisgames.com/2017/03/19/latency-estimation-phaser-quest/)
-- [Interest management](http://www.dynetisgames.com/2017/03/19/latency-estimation-phaser-quest/) (the "AOI" stuff you might encounter in the code)
+- [Interest management](http://www.dynetisgames.com/2017/04/05/interest-management-mog/) (the "AOI" stuff you might encounter in the code)
 - [Custom Binary Protocol](http://www.dynetisgames.com/2017/06/14/custom-binary-protocol-javascript/)
 
 ## Donate
