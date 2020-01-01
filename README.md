@@ -4,6 +4,8 @@ Phaser Quest is a reproduction of Mozilla's [Browserquest](http://browserquest.m
 - The [Phaser](https://phaser.io/) framework for the client 
 - [Socket.io](http://socket.io/) and [Node.js](https://nodejs.org/en/) for the server and client-server communication
 
+:fire: If you are interested in this project, you may also be interested in [Westward](https://github.com/Jerenaux/westward), an open source Javascript MMORPG that I am working on! :rocket:
+
 ## Quick tour of the code
 
 ### Client
