@@ -5,7 +5,15 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start:db": "sudo mongod",
+    "start": "node server.js",
+    "client:dev": "http-server -p 80",
+    "docker:build:run": "bash scripts/docker-build-and-run.sh",
+    "docker:start": "docker-compose up -d",
+    "docker:restart:map": "bash scripts/docker-restart-map.sh",
+    "docker:build": "docker-compose build",
+    "docker:rebuild": "bash scripts/docker-rebuild.sh",
+    "map:format": "node -e 'require(\"./js/server/format\").format()'"
   },
   "repository": {
     "type": "git",
