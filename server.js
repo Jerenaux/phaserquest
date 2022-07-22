@@ -84,9 +84,9 @@ server.listen(myArgs.p || process.env.PORT || 8081,function(){ // -p flag to spe
     gs.readMap();
     server.setUpdateLoop();
 
-    mongo.connect('mongodb://'+mongoHost+'/'+mongoDBName,function(err,db){
+    mongo.connect('mongodb://'+mongoHost,function(err, client){
         if(err) throw(err);
-        server.db = db;
+        server.db = client.db('phaserQuest');
         console.log('Connection to db established');
     });
 });

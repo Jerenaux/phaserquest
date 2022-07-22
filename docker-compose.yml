@@ -2,7 +2,7 @@ version: '2.0'
 
 services:
   mongo:
-    image: 'mongo:3.4.4'
+    image: 'mongo'
     ports:
       - '127.0.0.1:27017:27017'
     volumes:
