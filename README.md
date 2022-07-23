@@ -46,7 +46,7 @@ docker-compose build
 docker-compose up -d
 ```
 
-The default por when using the Docker way is `80`, so you need to navigate to `<IP_of_your_Docker_machine>:80` to be able to access the game (e.g. 192.168.99.100:80). 
+The default port when using the Docker way is `80`, so you need to navigate to `<IP_of_your_Docker_machine>:80` to be able to access the game (e.g. 192.168.99.100:80). 
 
 ## Modifying the map
 
